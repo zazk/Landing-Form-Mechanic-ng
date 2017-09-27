@@ -7,14 +7,21 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './admin/login/login.component';
 import { PanelComponent } from './admin/panel/panel.component';
 import { AppComponent } from './app.component';
+import { LandingComponent } from './landing/landing.component';
 
 const appRoutes: Routes = [
+	{ path: '', component: LandingComponent },
 	{ path: 'admin/login', component: LoginComponent },
 	{ path: 'admin/panel', component: PanelComponent }
 ];
 
 @NgModule({
-	declarations: [ AppComponent, LoginComponent, PanelComponent ],
+	declarations: [
+		AppComponent,
+		LoginComponent,
+		PanelComponent,
+		LandingComponent
+	],
 	imports: [
 		BrowserModule,
 		HttpClientModule,
