@@ -1,12 +1,11 @@
 <?php
 // process.php
 header('Access-Control-Allow-Origin: *');
-
+ header('Access-Control-Allow-Headers: Content-Type');
+ header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
 // LESSQL
 
 // Connection
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 require_once("./LessQL/Database.php");
 require_once("./LessQL/Result.php");
 require_once("./LessQL/Row.php");
@@ -23,20 +22,26 @@ $pdo = new PDO($dsn, $username, $password, $options);
 
 $db = new LessQL\Database( $pdo );
 $result = $db->mecanicos();
+$valid_fields = array(
+  'nombres',
+  'apellidopaterno',
+  'apellidomaterno',
+  'celular',
+  'email',
+  'fechanacimiento',
+  'telefonofijo',
+  'distritovives',
+  'educacion',
+  'distritotrabajas',
+  'nombretaller',
+  'direcciontaller',
+  'cargotaller',
+  'funcionestaller',
+  );
 
-$statement = $result->insert( array(
-  'nombres' => 'Prueba Nombres 1',
-  'apellidopaterno' => 'Prueba Nombres 1',
-  'apellidomaterno' => 'Prueba Nombres 1',
-  'celular' => 'Prueba Nombres 1',
-  'email' => 'Prueba Nombres 1',
-  'fechanacimiento' => '2010-10-10',
-  'telefonofijo' => 'Prueba Nombres 1',
-  'distritovives' => 'Prueba Nombres 1',
-  'educacion' => 'Prueba Nombres 1',
-  ) );
+//print_r( json_decode( $_POST['data'])  );
+$statement = $result->insert( json_decode( $_POST['data'] , true) );
 
-print_r($db->mecanicos()->fetchAll() );
 
 // Manage Data
 $errors = array();  // array to hold validation errors
@@ -49,7 +54,7 @@ if (empty($_POST['superheroAlias']))
   $errors['superheroAlias'] = 'Superhero alias is required.';
 
 // return a response ==============
-
+$data['rows'] = $db->mecanicos()->fetchAll() ;
 // response if there are errors
 if ( ! empty($errors)) {
 
