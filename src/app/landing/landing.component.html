@@ -18,43 +18,43 @@
 		<div class="c x-form form--right" >
 				<h3>INGRESA TUS DATOS.</h3>
 				<div class="text3--color">Solo para efectos del sorteo y comunicación</div>
-			<form action="" class="form--styl" #f="ngForm" (submit)="onSubmitForm(f.value)">
+			<form action="" class="form--styl" #f="ngForm" (submit)="onSubmitForm(f)">
 				<div>
 					<label for="">Nombres</label>
-					<input class="input" type="text" name="nombres" ngModel>  
+					<input class="input" type="text" required name="nombres" ngModel>  
 				</div> 
 				<div>
 					<label for="">Apellido Paterno</label>
-					<input class="input" type="text" name="apellidopaterno" ngModel>
+					<input class="input" type="text" required name="apellidopaterno" ngModel>
 				</div>
 				<div>
 					<label for="">Apellido Materno</label>
-					<input class="input" type="text" name="apellidomaterno" ngModel>
+					<input class="input" type="text" required name="apellidomaterno" ngModel>
 				</div>
 				<div>
 					<label for="">Celular</label>
-					<input class="input" type="text" name="celular" ngModel>
+					<input class="input" type="text" required name="celular" ngModel>
 				</div>
 				<div>
 					<label for="">Email</label>
-					<input class="input" type="email" name="email" ngModel>
+					<input class="input" type="email" required name="email" ngModel>
 				</div>
 				<div>
 					<label for="">Fecha de Nacimiento</label>
-					<input class="input" type="date" name="fechanacimiento"  placeholder="AAAA-MM-DD" required  ngModel>
+					<input class="input" type="date" required name="fechanacimiento"  placeholder="AAAA-MM-DD" required  ngModel>
 				</div>
 				
 				<div>
 					<label for="">Teléfono Fijo</label>
-					<input class="input" type="text" name="telefonofijo" ngModel>
+					<input class="input" type="text" required name="telefonofijo" ngModel>
 				</div>
 				<div>
 					<label for="">Distrito donde vives</label>
-					<input class="input" type="text" name="distritovives" ngModel>
+					<input class="input" type="text" required name="distritovives" ngModel>
 				</div>
 				<div>
 					<label for="">Educación</label>
-					<select class="input" name="" id="" name="educacion" ngModel>
+					<select class="input" name="" id="" required name="educacion" ngModel>
 							<option>sin estudios</option>
 							<option>primaria incompleta</option>
 							<option>primaria completa</option>
@@ -69,23 +69,23 @@
 
 				<div>
 					<label for="">Distrito donde trabajas</label>
-					<input class="input" type="text" name="distritotrabajas" ngModel>
+					<input class="input" type="text" required name="distritotrabajas" ngModel>
 				</div>        
 				<div>
 					<label for="">Nombre del taller</label>
-					<input class="input" type="text" name="nombretaller" ngModel>
+					<input class="input" type="text" required name="nombretaller" ngModel>
 				</div>        
 				<div>
 					<label for="">Dirección del taller</label>
-					<input class="input" type="text" name="direcciontaller" ngModel>
+					<input class="input" type="text" required name="direcciontaller" ngModel>
 				</div>        
 				<div>
 					<label for="">Cargo en el taller</label>
-					<input class="input" type="text" name="cargotaller" ngModel>
+					<input class="input" type="text" required name="cargotaller" ngModel>
 				</div>        
 				<div>
 					<label for="">Funciones que realiza en el taller</label>
-					<textarea class="textarea" name="" id=""  name="funcionestaller" ngModel></textarea>
+					<textarea class="textarea" required name="" id=""  name="funcionestaller" ngModel></textarea>
 				</div>
 				<div class="btn--submit">
 					<button>ENVIAR TUS DATOS</button>
